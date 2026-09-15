@@ -12,7 +12,7 @@ const STATS = [
   },
   {
     icon: <Zap size={16} className="text-[#63E6BE]" />,
-    value: "< 50ms",
+    value: "Optimized",
     label: "FAST APIS",
     sub: "Node.js & Serverless APIs",
   },
@@ -24,9 +24,9 @@ const STATS = [
   },
   {
     icon: <Shield size={16} className="text-[#63E6BE]" />,
-    value: "100%",
+    value: "TypeScript",
     label: "TYPE SAFETY",
-    sub: "Strict TypeScript Architecture",
+    sub: "Type-Safe Full-Stack Development",
   },
 ];
 
