@@ -22,6 +22,68 @@ interface ChatMessage {
   highlights?: string[];
 }
 
+function renderMessageText(text: string, isUser: boolean = false) {
+  // Regex to match URLs and emails
+  const urlOrEmailRegex = /(https?:\/\/[^\s]+|github\.com\/[^\s]+|linkedin\.com\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+  const parts = text.split(urlOrEmailRegex);
+
+  return parts.map((part, index) => {
+    if (!part) return null;
+
+    // Separate trailing punctuation if attached to URL/email
+    let cleanPart = part;
+    let trailingPunct = "";
+    if (/[.,!?:;]$/.test(cleanPart)) {
+      trailingPunct = cleanPart.slice(-1);
+      cleanPart = cleanPart.slice(0, -1);
+    }
+
+    // Check if email
+    if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(cleanPart)) {
+      return (
+        <React.Fragment key={index}>
+          <a
+            href={`mailto:${cleanPart}`}
+            className={
+              isUser
+                ? "underline underline-offset-4 font-bold text-black hover:opacity-80"
+                : "text-[#8C7BFF] hover:text-[#A799FF] underline underline-offset-4 font-semibold inline-flex items-center gap-0.5 hover:opacity-90 transition-all break-all"
+            }
+          >
+            {cleanPart}
+          </a>
+          {trailingPunct}
+        </React.Fragment>
+      );
+    }
+
+    // Check if URL (github.com, linkedin.com, http...)
+    if (/^(https?:\/\/|github\.com\/|linkedin\.com\/)/i.test(cleanPart)) {
+      const fullHref = cleanPart.startsWith("http") ? cleanPart : `https://${cleanPart}`;
+      return (
+        <React.Fragment key={index}>
+          <a
+            href={fullHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              isUser
+                ? "underline underline-offset-4 font-bold text-black hover:opacity-80"
+                : "text-[#8C7BFF] hover:text-[#A799FF] underline underline-offset-4 font-semibold inline-flex items-center gap-0.5 hover:opacity-90 transition-all break-all"
+            }
+          >
+            <span>{cleanPart}</span>
+            <span className="text-[10px] font-normal opacity-70">↗</span>
+          </a>
+          {trailingPunct}
+        </React.Fragment>
+      );
+    }
+
+    return <span key={index}>{part}</span>;
+  });
+}
+
 const QUICK_PROMPTS = [
   {
     label: "🎯 What does Fahad build?",
@@ -570,7 +632,7 @@ export function AIPlayground() {
                       : "bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none space-y-2 sm:space-y-3 text-xs sm:text-sm"
                   }`}
                 >
-                  <p>{msg.text}</p>
+                  <p>{renderMessageText(msg.text, msg.sender === "user")}</p>
 
                   {/* Optional Action Button Link */}
                   {msg.actionLink && (
@@ -605,7 +667,7 @@ export function AIPlayground() {
                   <Bot size={13} className="sm:w-[14px] sm:h-[14px]" />
                 </div>
                 <div className="max-w-[88%] sm:max-w-[75%] rounded-xl sm:rounded-2xl p-3 sm:p-4 bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none leading-relaxed whitespace-pre-line text-xs sm:text-sm">
-                  <span>{streamingText}</span>
+                  <span>{renderMessageText(streamingText, false)}</span>
                   <span className="inline-block w-1.5 sm:w-2 h-3.5 sm:h-4 bg-[#8C7BFF] ml-1 cursor-blink align-middle" />
                 </div>
               </motion.div>
