@@ -61,27 +61,29 @@ export function About() {
               initial={{ opacity: 0, y: 25 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="space-y-6"
+              className="space-y-5"
             >
               <p className="text-xl sm:text-2xl md:text-3xl text-[#ECE9E2] font-normal leading-relaxed">
-                I am a{" "}
+                I’m a{" "}
                 <span className="text-[#8C7BFF] font-semibold">
-                  full-stack engineer
+                  Full-Stack AI Engineer
                 </span>{" "}
-                specializing in high-performance{" "}
+                focused on building modern{" "}
                 <span className="text-[#8C7BFF] font-semibold">
                   SaaS platforms
-                </span>{" "}
-                and resilient{" "}
+                </span>
+                ,{" "}
                 <span className="text-[#8C7BFF] font-semibold">
-                  AI-integrated systems
+                  AI-powered applications
+                </span>
+                , and{" "}
+                <span className="text-[#8C7BFF] font-semibold">
+                  full-stack web products
                 </span>
                 .
               </p>
               <p className="text-base sm:text-lg text-[#8D8B86] leading-relaxed">
-                My approach bridges deep backend systems thinking with meticulous frontend craftsmanship. 
-                I focus on architecting scalable digital infrastructure that turns complex AI models into seamless, 
-                blazing-fast software experiences that users love to touch.
+                I work across the frontend, backend, databases, APIs, and AI integrations — turning ideas into complete, production-ready products. My focus is on building practical software that is scalable, reliable, and easy to use.
               </p>
             </motion.div>
 
