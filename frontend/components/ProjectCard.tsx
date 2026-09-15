@@ -69,7 +69,7 @@ export function ProjectCard({ project }: { project: ProjectData }) {
         </div>
 
         {/* Responsive Image Container */}
-        <div className="relative w-full h-[260px] sm:h-[360px] md:h-[410px] bg-[#0A0A0C] overflow-hidden">
+        <div className="relative w-full aspect-[16/10] sm:h-[340px] md:h-[400px] bg-[#0A0A0C] overflow-hidden">
           <Image
             src={project.imageSrc}
             alt={project.title}
