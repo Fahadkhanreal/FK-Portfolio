@@ -22,8 +22,10 @@ const TECH_ITEMS: TechNode[] = [
   { name: "Postgres", fullName: "PostgreSQL", category: "database", desc: "Relational database modeling, indexing & ACID transactions" },
   { name: "Prisma", fullName: "Prisma ORM", category: "database", desc: "Type-safe database queries, schema modeling & automated migrations" },
   { name: "Neon DB", fullName: "Neon Database", category: "database", desc: "Serverless Postgres with instant branching & auto-scaling capabilities" },
+  { name: "RAG", fullName: "RAG Architecture", category: "ai", desc: "Retrieval-Augmented Generation connecting custom business data to LLMs" },
+  { name: "LLM APIs", fullName: "LLM APIs (Gemini/OpenAI)", category: "ai", desc: "Gemini & OpenAI API orchestration, prompt engineering & streaming tokens" },
+  { name: "Vector Search", fullName: "Vector Search & Embeddings", category: "ai", desc: "Semantic vector embeddings, similarity search & pgvector indexing" },
   { name: "Cloudinary", fullName: "Cloudinary", category: "devops", desc: "Cloud media storage, image optimization & dynamic asset delivery" },
-  { name: "RAG", fullName: "RAG Systems", category: "ai", desc: "Retrieval-Augmented Generation, vector context & LLM pipelines" },
   { name: "GitHub", fullName: "Git & GitHub", category: "devops", desc: "Version control, branching workflows, PRs & code collaboration" },
   { name: "Vercel", fullName: "Vercel & Render", category: "devops", desc: "Production CI/CD deployment, cloud hosting & environment configs" },
 ];

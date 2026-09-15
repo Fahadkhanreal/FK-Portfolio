@@ -19,8 +19,8 @@ const STATS = [
   {
     icon: <Sparkles size={16} className="text-[#8C7BFF]" />,
     value: "AI-READY",
-    label: "RAG PIPELINES",
-    sub: "Semantic Search & LLM APIs",
+    label: "LLM & RAG",
+    sub: "LLM APIs, Vector Search & RAG",
   },
   {
     icon: <Shield size={16} className="text-[#63E6BE]" />,

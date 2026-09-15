@@ -341,7 +341,7 @@ export function AIPlayground() {
     ) {
       if (isUrduQuery) {
         return {
-          text: "Fahad builds practical, production-ready AI workflows including:\n\n• RAG (Retrieval-Augmented Generation): Connecting custom company data & PDFs to LLMs for accurate semantic answers.\n• Vector Embeddings & Similarity Search: Fast semantic matching in PostgreSQL & Neon DB.\n• AI Integration: Automating business tasks and workflows through modern AI APIs.",
+          text: "Fahad builds practical, production-ready AI workflows including:\n\n• LLM APIs (Gemini / OpenAI): Prompt engineering, multi-turn chat, structured output & token streaming.\n• Vector Embeddings & Similarity Search: Cosine similarity matching in PostgreSQL & Neon DB for instant semantic discovery.\n• RAG (Retrieval-Augmented Generation): Connecting private company documents, PDFs & knowledge bases to LLMs for accurate, hallucination-free answers.\n• AI Integration: Automating business tasks and workflows through modern AI APIs.",
           actionLink: {
             label: "INSPECT WORK SHOWCASE ↓",
             href: "#work",
@@ -349,7 +349,7 @@ export function AIPlayground() {
         };
       }
       return {
-        text: "Fahad builds practical, production-ready AI workflows including:\n\n• RAG (Retrieval-Augmented Generation): Connecting custom business knowledge & documents to LLMs for reliable semantic responses.\n• Vector Embeddings & Similarity Search: Fast semantic matching in PostgreSQL & Neon DB.\n• AI Integration: Automating business tasks and workflows through modern AI APIs and LLM orchestration.",
+        text: "Fahad builds practical, production-ready AI workflows including:\n\n• LLM APIs (Gemini / OpenAI): Prompt engineering, multi-turn chat, structured JSON outputs & token streaming.\n• Vector Embeddings & Similarity Search: Cosine similarity matching in PostgreSQL & Neon DB for instant semantic discovery.\n• RAG (Retrieval-Augmented Generation): Connecting custom business knowledge & documents to LLMs for reliable semantic responses.\n• AI Integration: Automating business tasks and workflows through modern AI APIs and LLM orchestration.",
         actionLink: {
           label: "INSPECT WORK SHOWCASE ↓",
           href: "#work",
