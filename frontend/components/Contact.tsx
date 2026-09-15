@@ -13,7 +13,7 @@ export function Contact() {
   const email = "fhadikhan00@gmail.com";
   const links = [
     { label: "GITHUB", value: "github.com/Fahadkhanreal", href: "https://github.com/Fahadkhanreal" },
-    { label: "LINKEDIN", value: "linkedin.com/in/fahad-khan-02a204210", href: "https://www.linkedin.com/in/fahad-khan-02a204210" },
+    { label: "LINKEDIN", value: "linkedin.com/in/fahad-khan-02a204210", href: "https://www.linkedin.com/in/fahad-khan-02a204210/" },
   ];
 
   const handleCopyEmail = () => {

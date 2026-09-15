@@ -58,8 +58,21 @@ function renderMessageText(text: string, isUser: boolean = false) {
     }
 
     // Check if URL (github.com, linkedin.com, http...)
-    if (/^(https?:\/\/|github\.com\/|linkedin\.com\/)/i.test(cleanPart)) {
-      const fullHref = cleanPart.startsWith("http") ? cleanPart : `https://${cleanPart}`;
+    if (/^(https?:\/\/|github\.com\/|linkedin\.com\/|www\.linkedin\.com\/)/i.test(cleanPart)) {
+      let fullHref = cleanPart;
+      if (cleanPart.startsWith("linkedin.com/in/")) {
+        fullHref = `https://www.linkedin.com/in/${cleanPart.replace(/^linkedin\.com\/in\//, "")}`;
+      } else if (cleanPart.startsWith("www.linkedin.com/in/")) {
+        fullHref = `https://${cleanPart}`;
+      } else if (!cleanPart.startsWith("http")) {
+        fullHref = `https://${cleanPart}`;
+      }
+
+      // Ensure trailing slash on LinkedIn profile URLs
+      if (fullHref.includes("linkedin.com/in/") && !fullHref.endsWith("/")) {
+        fullHref += "/";
+      }
+
       return (
         <React.Fragment key={index}>
           <a
@@ -228,7 +241,7 @@ export function AIPlayground() {
     ) {
       if (isUrduQuery) {
         return {
-          text: "Aap Fahad se in channels ke zariye direct rabta kar sakte hain:\n\n📧 Email: fhadikhan00@gmail.com\n🐙 GitHub: github.com/Fahadkhanreal\n💼 LinkedIn: linkedin.com/in/fahad-khan-02a204210\n\nAap direct email bhej sakte hain!",
+          text: "Aap Fahad se in channels ke zariye direct rabta kar sakte hain:\n\n📧 Email: fhadikhan00@gmail.com\n🐙 GitHub: github.com/Fahadkhanreal\n💼 LinkedIn: linkedin.com/in/fahad-khan-02a204210/\n\nAap direct email bhej sakte hain!",
           actionLink: {
             label: "SEND DIRECT EMAIL ✉️",
             href: "mailto:fhadikhan00@gmail.com",
@@ -236,7 +249,7 @@ export function AIPlayground() {
         };
       }
       return {
-        text: "You can connect directly with Fahad through any of the following channels:\n\n📧 Email: fhadikhan00@gmail.com\n🐙 GitHub: github.com/Fahadkhanreal\n💼 LinkedIn: linkedin.com/in/fahad-khan-02a204210\n\nClick below to directly compose an email to Fahad!",
+        text: "You can connect directly with Fahad through any of the following channels:\n\n📧 Email: fhadikhan00@gmail.com\n🐙 GitHub: github.com/Fahadkhanreal\n💼 LinkedIn: linkedin.com/in/fahad-khan-02a204210/\n\nClick any link above or compose an email directly!",
         actionLink: {
           label: "SEND DIRECT EMAIL ✉️",
           href: "mailto:fhadikhan00@gmail.com",
