@@ -47,10 +47,10 @@ export function ProjectCard({ project }: { project: ProjectData }) {
         target="_blank"
         rel="noopener noreferrer"
         data-cursor="VISIT"
-        className="group relative w-full rounded-[18px] overflow-hidden bg-[#16161A] border border-[rgba(236,233,226,0.12)] hover:border-[#8C7BFF] transition-all duration-300 shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:shadow-[0_24px_70px_rgba(140,123,255,0.3)] flex flex-col cursor-pointer block"
+        className="group relative w-full rounded-xl sm:rounded-2xl overflow-hidden bg-[#16161A] border border-[rgba(236,233,226,0.12)] hover:border-[#8C7BFF] transition-all duration-300 shadow-[0_16px_45px_rgba(0,0,0,0.8)] hover:shadow-[0_20px_55px_rgba(140,123,255,0.3)] flex flex-col cursor-pointer block"
       >
         {/* Sleek Browser Titlebar */}
-        <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 bg-[#111114] border-b border-[rgba(236,233,226,0.08)] group-hover:bg-[#16161A] transition-colors gap-2">
+        <div className="flex items-center justify-between px-3 sm:px-3.5 py-1.5 sm:py-2 bg-[#111114] border-b border-[rgba(236,233,226,0.08)] group-hover:bg-[#16161A] transition-colors gap-2">
           {/* Traffic Lights + Centered URL Bar */}
           <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
             <div className="flex items-center gap-1.5 shrink-0">
@@ -60,9 +60,9 @@ export function ProjectCard({ project }: { project: ProjectData }) {
             </div>
 
             {/* Realistic URL Address Bar Pill */}
-            <div className="flex items-center gap-1.5 bg-[#0A0A0C]/90 border border-[rgba(236,233,226,0.08)] rounded-md px-2 sm:px-2.5 py-1 min-w-0 max-w-[150px] sm:max-w-[260px]">
+            <div className="flex items-center gap-1.5 bg-[#0A0A0C]/90 border border-[rgba(236,233,226,0.08)] rounded-md px-2 sm:px-2.5 py-0.5 min-w-0 max-w-[140px] sm:max-w-[240px]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#63E6BE] shrink-0 opacity-80" />
-              <span className="font-mono-custom text-[10px] sm:text-[11px] text-[#8D8B86] tracking-wider truncate">
+              <span className="font-mono-custom text-[10px] sm:text-[10.5px] text-[#8D8B86] tracking-wider truncate">
                 {project.liveUrl
                   ? project.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
                   : `${project.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.vercel.app`}
@@ -71,15 +71,15 @@ export function ProjectCard({ project }: { project: ProjectData }) {
           </div>
 
           {/* Right Live Preview Badge (Balanced & responsive) */}
-          <div className="flex items-center gap-1.5 font-mono-custom text-[10px] sm:text-[10.5px] text-[#63E6BE] group-hover:text-[#0A0A0C] group-hover:bg-[#8C7BFF] group-hover:border-[#8C7BFF] bg-[#16161A] px-2.5 sm:px-3 py-1 rounded-full border border-[rgba(99,230,190,0.25)] transition-all shrink-0">
+          <div className="flex items-center gap-1 font-mono-custom text-[9.5px] sm:text-[10px] text-[#63E6BE] group-hover:text-[#0A0A0C] group-hover:bg-[#8C7BFF] group-hover:border-[#8C7BFF] bg-[#16161A] px-2 sm:px-2.5 py-0.5 rounded-full border border-[rgba(99,230,190,0.25)] transition-all shrink-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#63E6BE] group-hover:bg-[#0A0A0C] pulse-dot shrink-0" />
             <span className="font-bold tracking-wider">LIVE PREVIEW</span>
-            <ExternalLink size={11} className="shrink-0" />
+            <ExternalLink size={10} className="shrink-0" />
           </div>
         </div>
 
-        {/* Responsive Image Container */}
-        <div className="relative w-full aspect-[16/10] sm:h-[340px] md:h-[400px] bg-[#0A0A0C] overflow-hidden">
+        {/* Responsive Compact Image Container */}
+        <div className="relative w-full aspect-[16/9.5] sm:h-[270px] lg:h-[320px] bg-[#0A0A0C] overflow-hidden">
           <Image
             src={project.imageSrc}
             alt={project.title}

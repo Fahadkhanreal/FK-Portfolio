@@ -109,39 +109,39 @@ export function WorkShowcase() {
   return (
     <section
       id="work"
-      className="py-16 sm:py-24 lg:py-28 px-4 sm:px-8 md:px-12 lg:px-16 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative"
     >
-      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 sm:pb-6 border-b border-[rgba(236,233,226,0.08)]">
-          <div className="space-y-2 sm:space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-3.5 sm:pb-5 border-b border-[rgba(236,233,226,0.08)]">
+          <div className="space-y-1.5 sm:space-y-2">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7BFF]" />
               <span className="font-mono-custom text-xs text-[#8C7BFF] tracking-[0.2em] font-semibold">
                 01 / SELECTED WORK
               </span>
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#ECE9E2]">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-[#ECE9E2]">
               FEATURED PROJECTS
             </h2>
           </div>
 
-          <div className="font-mono-custom text-xs text-[#57564F] tracking-widest hidden sm:block">
+          <div className="font-mono-custom text-[11px] text-[#57564F] tracking-widest hidden sm:block">
             SELECT PROJECT BELOW TO EXPLORE
           </div>
         </div>
 
-        {/* 4-Project Grid Selector (Clean 2x2 grid on mobile, 4-col on desktop) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        {/* 4-Project Grid Selector (Clean compact grid on mobile & desktop) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
           {PROJECTS.map((p, i) => {
             const isActive = activeIdx === i;
             return (
               <button
                 key={p.id}
                 onClick={() => setActiveIdx(i)}
-                className={`text-left p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer relative overflow-hidden group ${
+                className={`text-left p-2.5 sm:p-3.5 rounded-xl border transition-all duration-300 cursor-pointer relative overflow-hidden group ${
                   isActive
-                    ? "bg-[#16161A] border-[#8C7BFF] shadow-[0_0_25px_rgba(140,123,255,0.25)] ring-1 ring-[#8C7BFF]/50"
+                    ? "bg-[#16161A] border-[#8C7BFF] shadow-[0_0_20px_rgba(140,123,255,0.2)] ring-1 ring-[#8C7BFF]/40"
                     : "bg-[#111114] border-[rgba(236,233,226,0.07)] hover:border-[rgba(236,233,226,0.2)] hover:bg-[#141418]"
                 }`}
               >
@@ -150,7 +150,7 @@ export function WorkShowcase() {
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#8C7BFF] shadow-[0_0_10px_#8C7BFF]" />
                 )}
 
-                <div className="flex items-center justify-between pb-1.5 sm:pb-2.5 font-mono-custom text-xs">
+                <div className="flex items-center justify-between pb-1 sm:pb-1.5 font-mono-custom text-xs">
                   <span
                     className={`font-bold tracking-wider ${
                       isActive ? "text-[#8C7BFF]" : "text-[#57564F] group-hover:text-[#8D8B86]"
@@ -162,14 +162,14 @@ export function WorkShowcase() {
                     {isActive && (
                       <span className="w-1.5 h-1.5 rounded-full bg-[#63E6BE] pulse-dot" />
                     )}
-                    <span className="text-[9.5px] sm:text-[10px] text-[#8D8B86] truncate max-w-[90px] sm:max-w-[130px]">
+                    <span className="text-[9px] sm:text-[9.5px] text-[#8D8B86] truncate max-w-[80px] sm:max-w-[120px]">
                       {p.category.split("+")[0].trim()}
                     </span>
                   </div>
                 </div>
 
                 <div
-                  className={`font-display font-semibold text-xs sm:text-base truncate transition-colors ${
+                  className={`font-display font-semibold text-xs sm:text-sm truncate transition-colors ${
                     isActive ? "text-[#ECE9E2]" : "text-[#8D8B86] group-hover:text-[#ECE9E2]"
                   }`}
                 >
@@ -181,29 +181,29 @@ export function WorkShowcase() {
         </div>
 
         {/* Active Project Highlight View */}
-        <div className="bg-[#111114] border border-[rgba(236,233,226,0.09)] rounded-[20px] sm:rounded-[24px] p-4 sm:p-8 lg:p-10 relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+        <div className="bg-[#111114] border border-[rgba(236,233,226,0.09)] rounded-2xl sm:rounded-[22px] p-4 sm:p-6 lg:p-7 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProject.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center"
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center"
             >
               {/* Left Column: Project Info (5 Cols on desktop) */}
-              <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <span className="font-mono-custom text-2xl sm:text-4xl font-bold text-[#8C7BFF]">
+              <div className="lg:col-span-5 space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-2 sm:gap-2.5">
+                  <span className="font-mono-custom text-xl sm:text-3xl font-bold text-[#8C7BFF]">
                     {activeProject.number}
                   </span>
-                  <span className="h-4 sm:h-5 w-[1px] bg-[rgba(236,233,226,0.15)]" />
-                  <span className="font-mono-custom text-[11px] sm:text-xs tracking-[0.14em] sm:tracking-[0.16em] text-[#8D8B86] uppercase truncate">
+                  <span className="h-3.5 sm:h-4 w-[1px] bg-[rgba(236,233,226,0.15)]" />
+                  <span className="font-mono-custom text-[10px] sm:text-[11px] tracking-[0.14em] text-[#8D8B86] uppercase truncate">
                     {activeProject.category}
                   </span>
                 </div>
 
-                <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[#ECE9E2] uppercase tracking-tight">
+                <h3 className="font-display text-xl sm:text-3xl lg:text-4xl font-bold text-[#ECE9E2] uppercase tracking-tight">
                   {activeProject.title}
                 </h3>
 
@@ -212,16 +212,16 @@ export function WorkShowcase() {
                   <ProjectCard project={activeProject} />
                 </div>
 
-                <p className="text-xs sm:text-base text-[#8D8B86] leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-[#8D8B86] leading-relaxed font-normal">
                   {activeProject.description}
                 </p>
 
                 {/* Tech stack pills */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-0.5 sm:pt-1">
                   {activeProject.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="font-mono-custom text-[10px] sm:text-xs px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-md sm:rounded-lg bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.1)] tracking-wider"
+                      className="font-mono-custom text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-md bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.1)] tracking-wider"
                     >
                       {tech}
                     </span>
@@ -229,16 +229,16 @@ export function WorkShowcase() {
                 </div>
 
                 {/* CTA Action Links (Live Demo + GitHub) */}
-                <div className="pt-3 sm:pt-4 flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-2 sm:gap-2.5">
                   {activeProject.liveUrl && (
                     <a
                       href={activeProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#8C7BFF] text-[#0A0A0C] font-mono-custom text-xs font-bold tracking-[0.14em] hover:bg-white hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all flex-1 sm:flex-initial"
+                      className="group inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#8C7BFF] text-[#0A0A0C] font-mono-custom text-xs font-bold tracking-[0.14em] hover:bg-white hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all flex-1 sm:flex-initial"
                     >
                       <span>LIVE DEMO</span>
-                      <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <ExternalLink size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   )}
 
@@ -247,14 +247,14 @@ export function WorkShowcase() {
                       href={activeProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#16161A] hover:bg-[#202026] text-[#ECE9E2] font-mono-custom text-xs tracking-wider border border-[rgba(236,233,226,0.12)] hover:border-[#8C7BFF]/50 transition-all flex-1 sm:flex-initial"
+                      className="inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#16161A] hover:bg-[#202026] text-[#ECE9E2] font-mono-custom text-xs tracking-wider border border-[rgba(236,233,226,0.12)] hover:border-[#8C7BFF]/50 transition-all flex-1 sm:flex-initial"
                     >
-                      <GithubIcon size={14} />
+                      <GithubIcon size={13} />
                       <span>GITHUB CODE</span>
                     </a>
                   )}
 
-                  <span className="font-mono-custom text-[10px] sm:text-[11px] text-[#57564F] ml-auto hidden sm:block">
+                  <span className="font-mono-custom text-[9.5px] sm:text-[10px] text-[#57564F] ml-auto hidden sm:block">
                     {activeProject.metrics}
                   </span>
                 </div>
