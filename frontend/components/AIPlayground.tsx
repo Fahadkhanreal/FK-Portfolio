@@ -464,22 +464,22 @@ export function AIPlayground() {
   return (
     <section
       id="playground"
-      className="py-28 px-6 md:px-12 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative overflow-hidden"
+      className="py-14 sm:py-24 md:py-28 px-4 sm:px-8 md:px-12 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative overflow-hidden"
     >
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(140,123,255,0.08)_0%,rgba(140,123,255,0.02)_45%,transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto space-y-8 relative z-10">
+      <div className="max-w-4xl mx-auto space-y-5 sm:space-y-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[rgba(236,233,226,0.08)]">
-          <div className="space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-[rgba(236,233,226,0.08)]">
+          <div className="space-y-1 sm:space-y-2">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7BFF]" />
-              <span className="font-mono-custom text-xs text-[#8C7BFF] tracking-[0.2em] font-semibold">
+              <span className="font-mono-custom text-[11px] sm:text-xs text-[#8C7BFF] tracking-[0.2em] font-semibold">
                 05 / AI COPILOT
               </span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#ECE9E2]">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#ECE9E2]">
               ASK FAHAD&apos;S AI
             </h2>
           </div>
@@ -488,19 +488,19 @@ export function AIPlayground() {
           </p>
         </div>
 
-        {/* Quick Suggestion Prompts */}
-        <div className="space-y-2.5">
-          <div className="flex items-center gap-2 font-mono-custom text-[11px] text-[#57564F] tracking-wider">
-            <Sparkles size={13} className="text-[#8C7BFF]" />
-            <span>SUGGESTED QUICK QUESTIONS (1-CLICK):</span>
+        {/* Quick Suggestion Prompts - Horizontal Scroll on Mobile, Wrap on Desktop */}
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 font-mono-custom text-[10px] sm:text-[11px] text-[#57564F] tracking-wider">
+            <Sparkles size={12} className="text-[#8C7BFF] shrink-0" />
+            <span>SUGGESTED QUICK QUESTIONS (1-TAP):</span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex sm:flex-wrap gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none no-scrollbar -mx-1 px-1">
             {QUICK_PROMPTS.map((prompt) => (
               <button
                 key={prompt.label}
                 disabled={isTyping}
                 onClick={() => handleSendMessage(prompt.query)}
-                className="px-3.5 py-1.5 rounded-full bg-[#16161A] hover:bg-[#8C7BFF]/15 border border-[rgba(236,233,226,0.1)] hover:border-[#8C7BFF] text-[#ECE9E2] hover:text-[#8C7BFF] font-mono-custom text-xs transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-left"
+                className="shrink-0 sm:shrink px-3 sm:px-3.5 py-1.5 rounded-full bg-[#16161A] hover:bg-[#8C7BFF]/15 border border-[rgba(236,233,226,0.1)] hover:border-[#8C7BFF] text-[#ECE9E2] hover:text-[#8C7BFF] font-mono-custom text-[11px] sm:text-xs transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-left whitespace-nowrap sm:whitespace-normal"
               >
                 {prompt.label}
               </button>
@@ -508,26 +508,26 @@ export function AIPlayground() {
           </div>
         </div>
 
-        {/* Interactive Chat Window Container */}
-        <div className="bg-[#111114] border border-[rgba(236,233,226,0.12)] rounded-[22px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col h-[530px] sm:h-[570px]">
+        {/* Interactive Chat Window Container - Fixed Height per viewport */}
+        <div className="bg-[#111114] border border-[rgba(236,233,226,0.12)] rounded-2xl sm:rounded-[22px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col h-[430px] sm:h-[530px] md:h-[570px]">
           {/* Terminal Window Header Bar */}
-          <div className="bg-[#16161A] px-5 py-3 border-b border-[rgba(236,233,226,0.08)] flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F56] opacity-80" />
-                <span className="w-3 h-3 rounded-full bg-[#FFBD2E] opacity-80" />
-                <span className="w-3 h-3 rounded-full bg-[#27C93F] opacity-80" />
+          <div className="bg-[#16161A] px-3.5 sm:px-5 py-2.5 sm:py-3 border-b border-[rgba(236,233,226,0.08)] flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] opacity-80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] opacity-80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] opacity-80" />
               </div>
-              <div className="h-4 w-[1px] bg-[rgba(236,233,226,0.1)]" />
-              <div className="flex items-center gap-2 font-mono-custom text-xs text-[#ECE9E2]">
-                <Bot size={14} className="text-[#8C7BFF]" />
+              <div className="h-3.5 sm:h-4 w-[1px] bg-[rgba(236,233,226,0.1)]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 font-mono-custom text-xs text-[#ECE9E2]">
+                <Bot size={13} className="text-[#8C7BFF] sm:w-[14px] sm:h-[14px]" />
                 <span className="font-semibold">FAHAD.AI</span>
                 <span className="hidden sm:inline text-[#57564F]">— VIRTUAL COPILOT</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5 font-mono-custom text-[10px] text-[#63E6BE] bg-[#0A0A0C] px-2.5 py-0.5 rounded-full border border-[rgba(99,230,190,0.2)]">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-1.5 font-mono-custom text-[9px] sm:text-[10px] text-[#63E6BE] bg-[#0A0A0C] px-2 sm:px-2.5 py-0.5 rounded-full border border-[rgba(99,230,190,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#63E6BE] pulse-dot" />
                 <span>ONLINE</span>
               </div>
@@ -535,60 +535,60 @@ export function AIPlayground() {
               <button
                 onClick={handleReset}
                 title="Reset Conversation"
-                className="p-1.5 rounded-lg text-[#8D8B86] hover:text-[#ECE9E2] hover:bg-[#16161A] transition-colors"
+                className="p-1 sm:p-1.5 rounded-lg text-[#8D8B86] hover:text-[#ECE9E2] hover:bg-[#16161A] transition-colors"
               >
-                <RotateCcw size={14} />
+                <RotateCcw size={13} className="sm:w-[14px] sm:h-[14px]" />
               </button>
             </div>
           </div>
 
-          {/* Chat Messages Body */}
+          {/* Chat Messages Body - Scroll locked without jitter */}
           <div
             ref={chatContainerRef}
-            className="flex-1 p-4 sm:p-5 overflow-y-auto space-y-3 font-mono-custom text-xs sm:text-sm scroll-smooth"
+            className="flex-1 p-3.5 sm:p-5 overflow-y-auto space-y-2.5 sm:space-y-3 font-mono-custom text-xs sm:text-sm overscroll-contain"
           >
             {messages.map((msg) => (
               <motion.div
                 key={msg.id}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
-                className={`flex gap-3 ${
+                transition={{ duration: 0.18 }}
+                className={`flex gap-2 sm:gap-3 ${
                   msg.sender === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 {msg.sender === "ai" && (
-                  <div className="w-7 h-7 rounded-full bg-[#16161A] border border-[rgba(140,123,255,0.4)] flex items-center justify-center shrink-0 mt-0.5 text-[#8C7BFF]">
-                    <Bot size={14} />
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#16161A] border border-[rgba(140,123,255,0.4)] flex items-center justify-center shrink-0 mt-0.5 text-[#8C7BFF]">
+                    <Bot size={13} className="sm:w-[14px] sm:h-[14px]" />
                   </div>
                 )}
 
                 <div
-                  className={`max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 leading-relaxed whitespace-pre-line ${
+                  className={`max-w-[88%] sm:max-w-[75%] rounded-xl sm:rounded-2xl p-3 sm:p-4 leading-relaxed whitespace-pre-line ${
                     msg.sender === "user"
-                      ? "bg-[#8C7BFF] text-[#0A0A0C] font-medium shadow-[0_4px_20px_rgba(140,123,255,0.3)] rounded-br-none"
-                      : "bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none space-y-3"
+                      ? "bg-[#8C7BFF] text-[#0A0A0C] font-medium shadow-[0_4px_20px_rgba(140,123,255,0.3)] rounded-br-none text-xs sm:text-sm"
+                      : "bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none space-y-2 sm:space-y-3 text-xs sm:text-sm"
                   }`}
                 >
                   <p>{msg.text}</p>
 
                   {/* Optional Action Button Link */}
                   {msg.actionLink && (
-                    <div className="pt-2 border-t border-[rgba(236,233,226,0.08)]">
+                    <div className="pt-1.5 sm:pt-2 border-t border-[rgba(236,233,226,0.08)]">
                       <a
                         href={msg.actionLink.href}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#111114] hover:bg-[#8C7BFF] text-[#8C7BFF] hover:text-[#0A0A0C] font-mono-custom text-[11px] font-bold tracking-wider transition-all border border-[rgba(140,123,255,0.3)] hover:border-[#8C7BFF]"
+                        className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#111114] hover:bg-[#8C7BFF] text-[#8C7BFF] hover:text-[#0A0A0C] font-mono-custom text-[10px] sm:text-[11px] font-bold tracking-wider transition-all border border-[rgba(140,123,255,0.3)] hover:border-[#8C7BFF]"
                       >
                         <span>{msg.actionLink.label}</span>
-                        <ArrowRight size={12} />
+                        <ArrowRight size={11} className="sm:w-3 sm:h-3" />
                       </a>
                     </div>
                   )}
                 </div>
 
                 {msg.sender === "user" && (
-                  <div className="w-7 h-7 rounded-full bg-[#8C7BFF] flex items-center justify-center shrink-0 mt-0.5 text-[#0A0A0C]">
-                    <User size={14} />
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#8C7BFF] flex items-center justify-center shrink-0 mt-0.5 text-[#0A0A0C]">
+                    <User size={13} className="sm:w-[14px] sm:h-[14px]" />
                   </div>
                 )}
               </motion.div>
@@ -597,23 +597,23 @@ export function AIPlayground() {
             {/* Live Streaming Response State */}
             {isTyping && (
               <motion.div
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex gap-3 justify-start"
+                className="flex gap-2 sm:gap-3 justify-start"
               >
-                <div className="w-7 h-7 rounded-full bg-[#16161A] border border-[rgba(140,123,255,0.4)] flex items-center justify-center shrink-0 mt-0.5 text-[#8C7BFF]">
-                  <Bot size={14} />
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#16161A] border border-[rgba(140,123,255,0.4)] flex items-center justify-center shrink-0 mt-0.5 text-[#8C7BFF]">
+                  <Bot size={13} className="sm:w-[14px] sm:h-[14px]" />
                 </div>
-                <div className="max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none leading-relaxed whitespace-pre-line">
+                <div className="max-w-[88%] sm:max-w-[75%] rounded-xl sm:rounded-2xl p-3 sm:p-4 bg-[#16161A] text-[#ECE9E2] border border-[rgba(236,233,226,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.4)] rounded-tl-none leading-relaxed whitespace-pre-line text-xs sm:text-sm">
                   <span>{streamingText}</span>
-                  <span className="inline-block w-2 h-4 bg-[#8C7BFF] ml-1 cursor-blink" />
+                  <span className="inline-block w-1.5 sm:w-2 h-3.5 sm:h-4 bg-[#8C7BFF] ml-1 cursor-blink align-middle" />
                 </div>
               </motion.div>
             )}
           </div>
 
           {/* Interactive Chat Input Bar */}
-          <div className="p-4 bg-[#16161A] border-t border-[rgba(236,233,226,0.08)] shrink-0">
+          <div className="p-2.5 sm:p-4 bg-[#16161A] border-t border-[rgba(236,233,226,0.08)] shrink-0">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -625,17 +625,17 @@ export function AIPlayground() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Ask Fahad's AI anything (e.g., tech stack, hiring, projects)..."
+                placeholder="Ask Fahad's AI anything..."
                 disabled={isTyping}
-                className="flex-1 bg-[#111114] border border-[rgba(236,233,226,0.12)] focus:border-[#8C7BFF] rounded-xl px-4 py-3 text-xs sm:text-sm text-[#ECE9E2] placeholder-[#57564F] focus:outline-none transition-colors disabled:opacity-50"
+                className="flex-1 bg-[#111114] border border-[rgba(236,233,226,0.12)] focus:border-[#8C7BFF] rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-[#ECE9E2] placeholder-[#57564F] focus:outline-none transition-colors disabled:opacity-50"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isTyping}
-                className="p-3 rounded-xl bg-[#8C7BFF] hover:bg-white text-[#0A0A0C] font-bold transition-all duration-200 disabled:opacity-40 disabled:hover:bg-[#8C7BFF] disabled:cursor-not-allowed shrink-0 cursor-pointer shadow-[0_0_15px_rgba(140,123,255,0.4)]"
+                className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-[#8C7BFF] hover:bg-white text-[#0A0A0C] font-bold transition-all duration-200 disabled:opacity-40 disabled:hover:bg-[#8C7BFF] disabled:cursor-not-allowed shrink-0 cursor-pointer shadow-[0_0_15px_rgba(140,123,255,0.4)]"
                 aria-label="Send message"
               >
-                <Send size={15} />
+                <Send size={14} className="sm:w-[15px] sm:h-[15px]" />
               </button>
             </form>
           </div>
