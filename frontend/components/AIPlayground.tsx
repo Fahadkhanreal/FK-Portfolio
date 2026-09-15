@@ -464,26 +464,26 @@ export function AIPlayground() {
   return (
     <section
       id="playground"
-      className="py-14 sm:py-24 md:py-28 px-4 sm:px-8 md:px-12 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative overflow-hidden"
+      className="py-14 sm:py-20 md:py-24 px-4 sm:px-8 md:px-12 bg-[#0A0A0C] border-b border-[rgba(236,233,226,0.08)] relative overflow-hidden"
     >
       {/* Background Soft Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(140,123,255,0.08)_0%,rgba(140,123,255,0.02)_45%,transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto space-y-5 sm:space-y-8 relative z-10">
+      <div className="max-w-3xl mx-auto space-y-5 sm:space-y-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-[rgba(236,233,226,0.08)]">
-          <div className="space-y-1 sm:space-y-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4 pb-4 sm:pb-5 border-b border-[rgba(236,233,226,0.08)]">
+          <div className="space-y-1 sm:space-y-1.5">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7BFF]" />
               <span className="font-mono-custom text-[11px] sm:text-xs text-[#8C7BFF] tracking-[0.2em] font-semibold">
                 05 / AI COPILOT
               </span>
             </div>
-            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#ECE9E2]">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-[#ECE9E2]">
               ASK FAHAD&apos;S AI
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#8D8B86] max-w-sm">
+          <p className="text-xs sm:text-sm text-[#8D8B86] max-w-xs sm:max-w-sm">
             Have questions about my engineering stack, availability, or project experience? Ask my interactive AI assistant in real-time.
           </p>
         </div>
@@ -500,7 +500,7 @@ export function AIPlayground() {
                 key={prompt.label}
                 disabled={isTyping}
                 onClick={() => handleSendMessage(prompt.query)}
-                className="shrink-0 sm:shrink px-3 sm:px-3.5 py-1.5 rounded-full bg-[#16161A] hover:bg-[#8C7BFF]/15 border border-[rgba(236,233,226,0.1)] hover:border-[#8C7BFF] text-[#ECE9E2] hover:text-[#8C7BFF] font-mono-custom text-[11px] sm:text-xs transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-left whitespace-nowrap sm:whitespace-normal"
+                className="shrink-0 sm:shrink px-3 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#16161A] hover:bg-[#8C7BFF]/15 border border-[rgba(236,233,226,0.1)] hover:border-[#8C7BFF] text-[#ECE9E2] hover:text-[#8C7BFF] font-mono-custom text-[11px] sm:text-xs transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-left whitespace-nowrap sm:whitespace-normal"
               >
                 {prompt.label}
               </button>
@@ -508,8 +508,8 @@ export function AIPlayground() {
           </div>
         </div>
 
-        {/* Interactive Chat Window Container - Fixed Height per viewport */}
-        <div className="bg-[#111114] border border-[rgba(236,233,226,0.12)] rounded-2xl sm:rounded-[22px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col h-[430px] sm:h-[530px] md:h-[570px]">
+        {/* Interactive Chat Window Container - Fixed Balanced Height */}
+        <div className="bg-[#111114] border border-[rgba(236,233,226,0.12)] rounded-2xl sm:rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col h-[420px] sm:h-[470px] md:h-[490px]">
           {/* Terminal Window Header Bar */}
           <div className="bg-[#16161A] px-3.5 sm:px-5 py-2.5 sm:py-3 border-b border-[rgba(236,233,226,0.08)] flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5 sm:gap-3">
